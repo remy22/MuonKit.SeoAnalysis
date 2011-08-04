@@ -1,0 +1,4 @@
+﻿name: MuonKit.SeoAnalysis
+depends: openwrap anchored content
+depends: htmlagilitypack
+use-symlinks: false
