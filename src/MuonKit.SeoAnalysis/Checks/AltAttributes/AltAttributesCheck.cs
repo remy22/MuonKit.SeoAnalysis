@@ -1,10 +1,11 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using HtmlAgilityPack;
 namespace MuonKit.SeoAnalysis.Checks.AltAttributes
 {
 	public class AltAttributesCheck : IAltAttributesCheck
 	{
-		public AltAttributesAnalysis Analyse(HtmlDocument document)
+		public IEnumerable<AltAttributesAnalysis> Analyse(HtmlDocument document)
 		{
 			var images = document.DocumentNode.SelectNodes("//img") ?? new HtmlNodeCollection(document.DocumentNode);
 

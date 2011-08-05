@@ -42,7 +42,7 @@ namespace MuonKit.SeoAnalysis
 		/// </summary>
 		/// <param name="html">The HTML to analyse</param>
 		/// <returns></returns>
-		public HtmlAnalysis Analyse(string html)
+		public HtmlAnalysisReport Analyse(string html)
 		{
 			if (string.IsNullOrEmpty(html))
 				throw new ArgumentException("You must provide some HTML", "html");
@@ -54,7 +54,7 @@ namespace MuonKit.SeoAnalysis
 			var altAttributesAnalysis = this.altAttributesCheck.Analyse(htmlDocument);
 			var metaDescAnalysis = this.metaDescriptionCheck.Analyse(htmlDocument);
 
-			return new HtmlAnalysis(titleAnalysis, headersAnalysis, altAttributesAnalysis, metaDescAnalysis);
+			return new HtmlAnalysisReport(titleAnalysis, headersAnalysis, altAttributesAnalysis, metaDescAnalysis);
 		}
 
 		static HtmlDocument GetHtmlDocument(string html)

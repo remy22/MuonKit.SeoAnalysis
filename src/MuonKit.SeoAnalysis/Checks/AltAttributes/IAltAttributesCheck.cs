@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using HtmlAgilityPack;
 
 namespace MuonKit.SeoAnalysis.Checks.AltAttributes
 {
 	public interface IAltAttributesCheck
 	{
-		AltAttributesAnalysis Analyse(HtmlDocument document);
+		IEnumerable<AltAttributesAnalysis> Analyse(HtmlDocument document);
 	}
 }

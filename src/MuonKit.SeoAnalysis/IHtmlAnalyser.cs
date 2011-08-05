@@ -7,6 +7,6 @@ namespace MuonKit.SeoAnalysis
 		/// </summary>
 		/// <param name="html">The HTML to analyse</param>
 		/// <returns></returns>
-		HtmlAnalysis Analyse(string html);
+		HtmlAnalysisReport Analyse(string html);
 	}
 }

@@ -1,8 +1,8 @@
 namespace MuonKit.SeoAnalysis.Checks.AltAttributes
 {
-	public sealed class AltAttributesAnalysis
+	public sealed class AltAttributesAnalysis : IAnalysis
 	{
-		public readonly WarningLevel WarningLevel;
+		public WarningLevel WarningLevel { get; private set; }
 		public readonly string Message;
 
 		public AltAttributesAnalysis(WarningLevel warningLevel, string message)

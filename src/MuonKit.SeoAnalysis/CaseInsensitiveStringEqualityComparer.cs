@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace MuonKit.SeoAnalysis
 {
+	/// <summary>
+	/// Equates strings regardless of case (culture invariant)
+	/// </summary>
 	public class CaseInsensitiveStringEqualityComparer : IEqualityComparer<string>
 	{
 		public bool Equals(string x, string y)
@@ -16,10 +19,7 @@ namespace MuonKit.SeoAnalysis
 
 		public int GetHashCode(string obj)
 		{
-			if(obj == null)
-				return 0;
-
-			return obj.ToUpperInvariant().GetHashCode();
+			return obj == null ? 0 : obj.ToUpperInvariant().GetHashCode();
 		}
 	}
 }
