@@ -2,6 +2,7 @@
 using HtmlAgilityPack;
 using MuonKit.SeoAnalysis.Checks.AltAttributes;
 using MuonKit.SeoAnalysis.Checks.Headers;
+using MuonKit.SeoAnalysis.Checks.MetaDescription;
 using MuonKit.SeoAnalysis.Checks.Title;
 
 namespace MuonKit.SeoAnalysis
@@ -11,12 +12,13 @@ namespace MuonKit.SeoAnalysis
 		readonly ITitleCheck titleCheck;
 		readonly IHeadersCheck headersCheck;
 		readonly IAltAttributesCheck altAttributesCheck;
+		readonly MetaDescriptionCheck metaDescriptionCheck;
 
 		/// <summary>
 		/// Creates a new Html Analyser with the default checks
 		/// </summary>
 		public HtmlAnalyser()
-			: this(new TitleCheck(), new HeadersCheck(), new AltAttributesCheck())
+			: this(new TitleCheck(StopWords.All), new HeadersCheck(), new AltAttributesCheck(), new MetaDescriptionCheck())
 		{
 		}
 
@@ -26,11 +28,13 @@ namespace MuonKit.SeoAnalysis
 		/// <param name="titleCheck"></param>
 		/// <param name="headersCheck"></param>
 		/// <param name="altAttributesCheck"></param>
-		public HtmlAnalyser(ITitleCheck titleCheck, IHeadersCheck headersCheck, IAltAttributesCheck altAttributesCheck)
+		/// <param name="metaDescriptionCheck"></param>
+		public HtmlAnalyser(ITitleCheck titleCheck, IHeadersCheck headersCheck, IAltAttributesCheck altAttributesCheck, MetaDescriptionCheck metaDescriptionCheck)
 		{
 			this.titleCheck = titleCheck;
 			this.headersCheck = headersCheck;
 			this.altAttributesCheck = altAttributesCheck;
+			this.metaDescriptionCheck = metaDescriptionCheck;
 		}
 
 		/// <summary>
@@ -48,8 +52,9 @@ namespace MuonKit.SeoAnalysis
 			var titleAnalysis = this.titleCheck.Analyse(htmlDocument);
 			var headersAnalysis = this.headersCheck.Analyse(htmlDocument);
 			var altAttributesAnalysis = this.altAttributesCheck.Analyse(htmlDocument);
+			var metaDescAnalysis = this.metaDescriptionCheck.Analyse(htmlDocument);
 
-			return new HtmlAnalysis(titleAnalysis, headersAnalysis, altAttributesAnalysis);
+			return new HtmlAnalysis(titleAnalysis, headersAnalysis, altAttributesAnalysis, metaDescAnalysis);
 		}
 
 		static HtmlDocument GetHtmlDocument(string html)

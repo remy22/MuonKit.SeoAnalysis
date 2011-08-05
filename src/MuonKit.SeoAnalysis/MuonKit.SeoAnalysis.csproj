@@ -36,16 +36,25 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Checks\AltAttributes\IAltAttributesCheck.cs" />
+    <Compile Include="CaseInsensitiveStringEqualityComparer.cs" />
     <Compile Include="Checks\AltAttributes\AltAttributesAnalysis.cs" />
     <Compile Include="Checks\AltAttributes\AltAttributesCheck.cs" />
+    <Compile Include="Checks\AltAttributes\IAltAttributesCheck.cs" />
     <Compile Include="Checks\Anchors\AnchorAnalysis.cs" />
     <Compile Include="Checks\Anchors\AnchorsCheck.cs" />
     <Compile Include="Checks\Anchors\IAnchorsCheck.cs" />
+    <Compile Include="Checks\Body\BodyCheck.cs" />
     <Compile Include="Checks\Headers\HeaderAnalysis.cs" />
-    <Compile Include="Checks\Headers\IHeadersCheck.cs" />
+    <Compile Include="Checks\Headers\HeaderTypeAnalysis.cs" />
     <Compile Include="Checks\Headers\HeadersAnalysis.cs" />
     <Compile Include="Checks\Headers\HeadersCheck.cs" />
+    <Compile Include="Checks\Headers\IHeadersCheck.cs" />
+    <Compile Include="Checks\IAnalysis.cs" />
+    <Compile Include="Checks\AnalysisExtensions.cs" />
+    <Compile Include="Checks\Message.cs" />
+    <Compile Include="Checks\MetaDescription\IMetaDescriptionCheck.cs" />
+    <Compile Include="Checks\MetaDescription\MetaDescriptionAnalysis.cs" />
+    <Compile Include="Checks\MetaDescription\MetaDescriptionCheck.cs" />
     <Compile Include="Checks\Title\ITitleCheck.cs" />
     <Compile Include="Checks\Title\TitleAnalysis.cs" />
     <Compile Include="Checks\Title\TitleCheck.cs" />
@@ -54,7 +63,9 @@
     <Compile Include="HtmlAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeoAnlysisException.cs" />
+    <Compile Include="StopWords.cs" />
     <Compile Include="WarningLevel.cs" />
+    <Compile Include="WarningLevelExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />

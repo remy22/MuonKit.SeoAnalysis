@@ -1,15 +1,15 @@
 namespace MuonKit.SeoAnalysis.Checks.Headers
 {
-	public sealed class HeadersAnalysis
+	public sealed class HeadersAnalysis : IAnalysis
 	{
-		public readonly HeaderAnalysis H1s;
-		public readonly HeaderAnalysis H2s;
-		public readonly HeaderAnalysis H3s;
-		public readonly HeaderAnalysis H4s;
-		public readonly HeaderAnalysis H5s;
-		public readonly HeaderAnalysis H6s;
+		public readonly HeaderTypeAnalysis H1s;
+		public readonly HeaderTypeAnalysis H2s;
+		public readonly HeaderTypeAnalysis H3s;
+		public readonly HeaderTypeAnalysis H4s;
+		public readonly HeaderTypeAnalysis H5s;
+		public readonly HeaderTypeAnalysis H6s;
 
-		public HeadersAnalysis(HeaderAnalysis h1S, HeaderAnalysis h2S, HeaderAnalysis h3S, HeaderAnalysis h4S, HeaderAnalysis h5S, HeaderAnalysis h6S)
+		public HeadersAnalysis(HeaderTypeAnalysis h1S, HeaderTypeAnalysis h2S, HeaderTypeAnalysis h3S, HeaderTypeAnalysis h4S, HeaderTypeAnalysis h5S, HeaderTypeAnalysis h6S)
 		{
 			this.H1s = h1S;
 			this.H2s = h2S;

@@ -1,26 +1,29 @@
-﻿using System;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using HtmlAgilityPack;
 
 namespace MuonKit.SeoAnalysis.Checks.Anchors
 {
 	public class AnchorsCheck : IAnchorsCheck
 	{
-		public AnchorAnalysis Analyse(HtmlDocument document)
+		public IEnumerable<AnchorAnalysis> Analyse(HtmlDocument document)
 		{
-			var images = document.DocumentNode.SelectNodes("//a") ?? new HtmlNodeCollection(document.DocumentNode);
+			var anchors = document.DocumentNode.SelectNodes("//a") ?? new HtmlNodeCollection(document.DocumentNode);
 
-			var warningLevel = WarningLevel.Ok;
-			var message = new StringBuilder();
+			return anchors.Select(AnalyseAnchor);
+		}
 
-			throw new NotImplementedException();
+		static AnchorAnalysis AnalyseAnchor(HtmlNode anchor)
+		{
+			var href = anchor.GetAttributeValue("href", null);
+			var rel = anchor.GetAttributeValue("rel", null);
+			var title = anchor.GetAttributeValue("title", null);
+			var text = anchor.InnerText;
 
-			foreach (var image in images)
-			{
-				
-			}
+			// todo: determine if its an offsite link?
+			// determine if it contains a title, has text - if not, image? adivse
 
-			return new AnchorAnalysis(warningLevel, message.ToString());
+			return new AnchorAnalysis(text, title, href, rel);
 		}
 	}
 }

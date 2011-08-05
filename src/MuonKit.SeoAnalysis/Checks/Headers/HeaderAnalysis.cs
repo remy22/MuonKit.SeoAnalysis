@@ -2,18 +2,27 @@ using System.Collections.Generic;
 
 namespace MuonKit.SeoAnalysis.Checks.Headers
 {
-	public sealed class HeaderAnalysis
+	public class HeaderAnalysis : IAnalysis
 	{
-		public readonly IEnumerable<string> Headers;
+		/// <summary>
+		/// The text of this header element
+		/// </summary>
+		public readonly string Header;
 
-		public readonly WarningLevel WarningLevel;
-		public readonly string Message;
+		/// <summary>
+		/// The analysis messages for this element
+		/// </summary>
+		public readonly IEnumerable<Message> Messages;
 
-		public HeaderAnalysis(IEnumerable<string> headers, WarningLevel warningLevel, string message)
+		/// <summary>
+		/// The warning level for this element
+		/// </summary>
+		public WarningLevel WarningLevel { get { return this.Messages.WarningLevel(); } }
+
+		public HeaderAnalysis(string header, params Message[] messages)
 		{
-			this.Headers = headers;
-			this.WarningLevel = warningLevel;
-			this.Message = message;
+			this.Header = header;
+			this.Messages = messages;
 		}
 	}
 }
