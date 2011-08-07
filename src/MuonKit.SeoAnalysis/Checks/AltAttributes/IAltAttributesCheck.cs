@@ -5,6 +5,6 @@ namespace MuonKit.SeoAnalysis.Checks.AltAttributes
 {
 	public interface IAltAttributesCheck
 	{
-		IEnumerable<AltAttributesAnalysis> Analyse(HtmlDocument document);
+		IEnumerable<AltAttributeAnalysis> Analyse(HtmlDocument document);
 	}
 }

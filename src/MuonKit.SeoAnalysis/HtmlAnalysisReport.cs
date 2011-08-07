@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MuonKit.SeoAnalysis.Checks.AltAttributes;
 using MuonKit.SeoAnalysis.Checks.Headers;
 using MuonKit.SeoAnalysis.Checks.MetaDescription;
@@ -20,7 +21,7 @@ namespace MuonKit.SeoAnalysis
 		/// <summary>
 		/// Analysis results for Alt attributes on Img elements
 		/// </summary>
-		public readonly AltAttributesAnalysis AltAttributes;
+		public readonly IEnumerable<AltAttributeAnalysis> AltAttributes;
 		
 		/// <summary>
 		/// Analysus results for the meta description element
@@ -34,7 +35,7 @@ namespace MuonKit.SeoAnalysis
 		/// <param name="headers"></param>
 		/// <param name="altAttributes"></param>
 		/// <param name="metaDescAnalysis"></param>
-		public HtmlAnalysisReport(TitleAnalysis title, HeadersAnalysis headers, AltAttributesAnalysis altAttributes, MetaDescriptionAnalysis metaDescAnalysis)
+		public HtmlAnalysisReport(TitleAnalysis title, HeadersAnalysis headers, IEnumerable<AltAttributeAnalysis> altAttributes, MetaDescriptionAnalysis metaDescAnalysis)
 		{
 			this.Title = title;
 			this.Headers = headers;
@@ -52,7 +53,7 @@ namespace MuonKit.SeoAnalysis
 				return 
 					this.Title.WarningLevel | 
 					this.Headers.WarningLevel |
-					this.AltAttributes.WarningLevel | 
+					this.AltAttributes.WarningLevel() | 
 					this.MetaDescAnalysis.WarningLevel;
 			}
 		}

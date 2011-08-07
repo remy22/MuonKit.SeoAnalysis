@@ -1,43 +1,27 @@
 ﻿using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using HtmlAgilityPack;
 namespace MuonKit.SeoAnalysis.Checks.AltAttributes
 {
 	public class AltAttributesCheck : IAltAttributesCheck
 	{
-		public IEnumerable<AltAttributesAnalysis> Analyse(HtmlDocument document)
+		public IEnumerable<AltAttributeAnalysis> Analyse(HtmlDocument document)
 		{
 			var images = document.DocumentNode.SelectNodes("//img") ?? new HtmlNodeCollection(document.DocumentNode);
+			return images.Select(AnalyseImage);
+		}
 
-			var warningLevel = WarningLevel.Ok;
-			var message = new StringBuilder();
+		static AltAttributeAnalysis AnalyseImage(HtmlNode image)
+		{
+			var altAttr = image.Attributes["alt"];
 
-			foreach (var image in images)
-			{
-				var altAttr = image.Attributes["alt"];
+			if (altAttr == null)
+				return new AltAttributeAnalysis(WarningLevel.Advisory, "Image with src `" + image.Attributes["src"] + "` has no alt attribute.");
 
-				if(altAttr == null)
-				{
-					warningLevel |= WarningLevel.Advisory;
-					message
-						.Append("Image with source: `")
-						.Append(image.Attributes["src"].Value)
-						.AppendLine("` has no alt attribute.");
+			if (altAttr.Value != null && !string.IsNullOrEmpty(altAttr.Value.Trim()))
+				return new AltAttributeAnalysis(WarningLevel.Advisory, "Image with src `" + image.Attributes["src"] + "` has an empty alt attribute.");
 
-				} else if(altAttr.Value != null && !string.IsNullOrEmpty(altAttr.Value.Trim()))
-				{
-					warningLevel |= WarningLevel.Advisory;
-					message
-						.Append("Image with source: `")
-						.Append(image.Attributes["src"].Value)
-						.AppendLine("` has an empty alt attribute.");
-				}
-			}
-
-			if (message.Length == 0)
-				message.Append("All img tags have non-empty alt attributes.");
-
-			return new AltAttributesAnalysis(warningLevel, message.ToString());
+			return new AltAttributeAnalysis(WarningLevel.Ok, "Image with src `" + image.Attributes["src"] + "` has a non empty alt attribute.");
 		}
 	}
 }

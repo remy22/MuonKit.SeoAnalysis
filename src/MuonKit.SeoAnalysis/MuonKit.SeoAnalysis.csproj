@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaseInsensitiveStringEqualityComparer.cs" />
-    <Compile Include="Checks\AltAttributes\AltAttributesAnalysis.cs" />
+    <Compile Include="Checks\AltAttributes\AltAttributeAnalysis.cs" />
     <Compile Include="Checks\AltAttributes\AltAttributesCheck.cs" />
     <Compile Include="Checks\AltAttributes\IAltAttributesCheck.cs" />
     <Compile Include="Checks\Anchors\AnchorAnalysis.cs" />
