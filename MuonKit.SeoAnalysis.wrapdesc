@@ -1,4 +1,9 @@
 ﻿name: MuonKit.SeoAnalysis
+
 depends: openwrap anchored content
 depends: htmlagilitypack
+depends: nunit 
+
 use-symlinks: false
+
+build: msbuild;project=src\MuonKit.SeoAnalysis\MuonKit.SeoAnalysis.csproj

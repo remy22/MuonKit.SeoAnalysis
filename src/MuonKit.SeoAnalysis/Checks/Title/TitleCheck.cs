@@ -22,11 +22,11 @@ namespace MuonKit.SeoAnalysis.Checks.Title
 			// TODO: check for multiple tags
 			var titleNode = document.DocumentNode.SelectSingleNode("//title");
 			if (titleNode == null)
-				return new TitleAnalysis(null, new Message(WarningLevel.Critical, "The page does not have a title tag."));
+				return new TitleAnalysis(null, new Message(WarningLevel.Critical, "The page does not have a title element."));
 
 			var titleText = titleNode.InnerText;
 			if (string.IsNullOrEmpty(titleText) || titleText.Trim() == string.Empty)
-				return new TitleAnalysis(string.Empty, new Message(WarningLevel.Critical, "The page contains an empty title tag."));
+				return new TitleAnalysis(string.Empty, new Message(WarningLevel.Critical, "The page contains an empty title element."));
 
 			var messages = new List<Message>();
 

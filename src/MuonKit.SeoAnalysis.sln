@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.SeoAnalysis", "MuonKit.SeoAnalysis\MuonKit.SeoAnalysis.csproj", "{A17B5B97-D8E1-4174-A507-75E107A13E15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.SeoAnalysis.Example", "MuonKit.SeoAnalysis.Example\MuonKit.SeoAnalysis.Example.csproj", "{5C101F51-23C6-432C-96A7-EF28C64D108C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{E0ECB68B-A134-40B4-98BC-278D9388011D}"
+	ProjectSection(SolutionItems) = preProject
+		..\MuonKit.SeoAnalysis.wrapdesc = ..\MuonKit.SeoAnalysis.wrapdesc
+		..\version = ..\version
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.SeoAnalysis.Tests", "MuonKit.SeoAnalysis.Tests\MuonKit.SeoAnalysis.Tests.csproj", "{3BF67CDD-3375-4264-A501-B6D7D601FFE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +41,16 @@ Global
 		{5C101F51-23C6-432C-96A7-EF28C64D108C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{5C101F51-23C6-432C-96A7-EF28C64D108C}.Release|x86.ActiveCfg = Release|x86
 		{5C101F51-23C6-432C-96A7-EF28C64D108C}.Release|x86.Build.0 = Release|x86
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3BF67CDD-3375-4264-A501-B6D7D601FFE8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
