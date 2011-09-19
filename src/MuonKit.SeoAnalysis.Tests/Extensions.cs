@@ -11,7 +11,7 @@ namespace MuonKit.SeoAnalysis.Tests
 
 		public static void Is(this WarningLevel self, WarningLevel expected)
 		{
-			Assert.IsTrue((self & expected) == expected);
+			Assert.IsTrue((self & expected) == expected, "Expected `" + expected + "`, found `" + self + "`");
 		}
 	}
 }

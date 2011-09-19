@@ -9,13 +9,13 @@ namespace MuonKit.SeoAnalysis.Checks.MetaDescription
 		// compare to first para of body?
 		public MetaDescriptionAnalysis Analyse(HtmlDocument document)
 		{
-			var nodes = document.DocumentNode.SelectNodes("head/meta[@name=description]") ?? new HtmlNodeCollection(document.DocumentNode);
+			var nodes = document.DocumentNode.SelectNodes("html/head/meta[@name='description']") ?? new HtmlNodeCollection(document.DocumentNode);
 
 			if (nodes.Count == 0)
 				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page does not contain a meta description element."));
 
 			if(nodes.Count > 1)
-				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page contains multiple meta description elements. This is not recommended."));
+				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page contains multiple meta description elements."));
 
 			var desc = nodes[0].GetAttributeValue("content", null);
 

@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltAttributeSpecs\EmptyAttributes.cs" />
+    <Compile Include="AltAttributeSpecs\MissingAttributes.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="MetaDescription\MultipleElements.cs" />
+    <Compile Include="MetaDescription\EmptyElement.cs" />
+    <Compile Include="MetaDescription\MissingElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitleSpecs\LongTitle.cs" />
     <Compile Include="TitleSpecs\ShortTitle.cs" />
     <Compile Include="TitleSpecs\NoTitleElement.cs" />
   </ItemGroup>
