@@ -19,12 +19,6 @@ namespace MuonKit.SeoAnalysis.Checks.MetaDescription
 		/// </summary>
 		public WarningLevel WarningLevel { get { return this.Messages.WarningLevel(); } }
 
-		public MetaDescriptionAnalysis(string content,  params Message[] messages)
-		{
-			this.Content = content;
-			this.Messages = messages;
-		}
-
 		public MetaDescriptionAnalysis(string content, IEnumerable<Message> messages)
 		{
 			this.Content = content;

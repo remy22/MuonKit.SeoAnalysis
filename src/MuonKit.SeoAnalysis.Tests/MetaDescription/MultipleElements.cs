@@ -14,7 +14,7 @@ namespace MuonKit.SeoAnalysis.Tests.MetaDescription
 		public void ShouldComplain()
 		{
 			var enumerable = this.htmlAnalysisReport.MetaDescAnalysis.Messages.ToArray();
-			enumerable[0].Text.ShouldEqual("The page contains multiple meta description elements.");
+			enumerable[0].Text.ShouldEqual("The <head> contains multiple meta description elements.");
 			enumerable[0].WarningLevel.ShouldEqual(WarningLevel.Critical);
 		}
 	}

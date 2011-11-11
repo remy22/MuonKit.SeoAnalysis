@@ -21,12 +21,6 @@ namespace MuonKit.SeoAnalysis.Checks.Title
 			this.Messages = messages;
 		}
 
-		public TitleAnalysis(string title, params Message[] messages)
-		{
-			this.Title = title;
-			this.Messages = messages;
-		}
-
 		/// <summary>
 		/// The warning level for the title element
 		/// </summary>

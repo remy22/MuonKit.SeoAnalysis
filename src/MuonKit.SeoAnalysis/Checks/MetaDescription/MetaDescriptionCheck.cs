@@ -12,15 +12,15 @@ namespace MuonKit.SeoAnalysis.Checks.MetaDescription
 			var nodes = document.DocumentNode.SelectNodes("html/head/meta[@name='description']") ?? new HtmlNodeCollection(document.DocumentNode);
 
 			if (nodes.Count == 0)
-				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page does not contain a meta description element."));
+				return new MetaDescriptionAnalysis(null, new [] {new Message(WarningLevel.Critical, "The <head> does not contain a meta description element.")});
 
 			if(nodes.Count > 1)
-				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page contains multiple meta description elements."));
+				return new MetaDescriptionAnalysis(null, new [] {new Message(WarningLevel.Critical, "The <head> contains multiple meta description elements.")});
 
 			var desc = nodes[0].GetAttributeValue("content", null);
 
 			if(desc == null || desc.Trim() == string.Empty)
-				return new MetaDescriptionAnalysis(null, new Message(WarningLevel.Critical, "The page contains a meta description element, but it contains no content."));
+				return new MetaDescriptionAnalysis(null, new [] {new Message(WarningLevel.Critical, "The <head> contains a meta description element, but it contains no content.")});
 
 			var messages = new List<Message>();
 
