@@ -29,7 +29,7 @@ namespace MuonKit.SeoAnalysis.Checks.Anchors
 		/// </summary>
 		public readonly IEnumerable<Message> Messages;
 
-		public AnchorAnalysis(string text, string title, string href, string rel, params Message[] messages)
+		public AnchorAnalysis(string text, string title, string href, string rel, IEnumerable<Message> messages)
 		{
 			this.Text = text;
 			this.Title = title;

@@ -19,7 +19,7 @@ namespace MuonKit.SeoAnalysis.Checks.Headers
 		/// </summary>
 		public WarningLevel WarningLevel { get { return this.Messages.WarningLevel(); } }
 
-		public HeaderAnalysis(string header, params Message[] messages)
+		public HeaderAnalysis(string header, IEnumerable<Message> messages)
 		{
 			this.Header = header;
 			this.Messages = messages;

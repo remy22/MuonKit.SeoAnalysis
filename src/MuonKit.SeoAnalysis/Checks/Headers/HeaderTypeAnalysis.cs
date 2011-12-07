@@ -24,7 +24,7 @@ namespace MuonKit.SeoAnalysis.Checks.Headers
 		/// </summary>
 		public readonly IEnumerable<Message> Messages;
 
-		public HeaderTypeAnalysis(IEnumerable<HeaderAnalysis> headers, params Message[] messages)
+		public HeaderTypeAnalysis(IEnumerable<HeaderAnalysis> headers, IEnumerable<Message> messages)
 		{
 			this.Headers = headers;
 			this.Messages = messages;

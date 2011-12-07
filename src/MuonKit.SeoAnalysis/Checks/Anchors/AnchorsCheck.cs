@@ -23,7 +23,7 @@ namespace MuonKit.SeoAnalysis.Checks.Anchors
 			// todo: determine if its an offsite link?
 			// determine if it contains a title, has text - if not, image? adivse
 
-			return new AnchorAnalysis(text, title, href, rel);
+			return new AnchorAnalysis(text, title, href, rel, new Message[0]);
 		}
 	}
 }
